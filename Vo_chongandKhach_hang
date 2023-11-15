@@ -1,0 +1,17 @@
+CREATE TABLE Khach_Hang
+(	HoVaDem nvarchar(50) NOT NULL,
+	Ten_KH nvarchar(50) NOT NULL,
+	CCCD_or_CMND varchar(12) PRIMARY KEY,
+	SDT nvarchar(12),
+	Email varchar(50)
+	)
+CREATE TABLE Vo_chong
+(	CCCD_or_CMND varchar(12) NOT NULL,
+	HoVaTen nvarchar(50) NOT NULL,
+	Gioi_Tinh nvarchar(20) CHECK(Gioi_Tinh IN('Nam','Nữ')),
+	Quan_he nvarchar(20) CHECK(Quan_he IN('Vợ','Chồng'))
+	CONSTRAINT fk_Vkck_CCCD_or_CMND
+	FOREIGN KEY (CCCD_or_CMND)
+	REFERENCES Khach_Hang (CCCD_or_CMND)
+	)
+Insert into
